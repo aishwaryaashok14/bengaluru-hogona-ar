@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Bengaluru Hogona AR</title>
+
+    <!-- Core libraries -->
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+
+    <style>
+      body { margin: 0; overflow: hidden; }
+      .headline {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 9999;
+        text-align: center;
+        color: #FFFFFF;
+        font-family: Arial, sans-serif;
+        font-size: 20px;
+        font-weight: bold;
+        background: rgba(0, 0, 0, 0.8);
+        padding: 20px 30px;
+        border-radius: 10px;
+        max-width: 85%;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        pointer-events: none;
+      }
+    </style>
+
+    <!-- Tap interaction -->
+    <script>
+      AFRAME.registerComponent('tap-to-toggle', {
+        init() {
+          this.el.addEventListener('click', () => {
+            const text = this.el.querySelector('a-text');
+            const visible = text.getAttribute('visible');
+            text.setAttribute('visible', !visible);
+          });
+        }
+      });
+    </script>
+  </head>
+
+  <body>
+    <div class="headline">Hogona - A Kannada invite to adventure, meaning "Let's go!" —perfect for Bengaluru explorations.</div>
+    <a-scene
+      mindar-image="imageTargetSrc: bengaluru.mind;"
+      vr-mode-ui="enabled: false"
+      device-orientation-permission-ui="enabled: true"
+      embedded
+    >
+      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
+      <!-- ========================= -->
+      <!-- AR CONTENT FOR POSTCARD -->
+      <!-- ========================= -->
+
+      <a-entity mindar-image-target="targetIndex: 0">
+
+        <!-- TOP ROW -->
+        <a-entity position="-0.5 0.5 0" tap-to-toggle>
+          <a-plane width="0.45" height="0.45" opacity="0"></a-plane>
+          <a-text value="Auto rides & small talk"
+                  position="0 0.35 0"
+                  width="0.9"
+                  align="center"
+                  visible="false"
+                  color="#FFFFFF"></a-text>
+        </a-entity>
+
+        <a-entity position="0 0.5 0" tap-to-toggle>
+          <a-plane width="0.45" height="0.45" opacity="0"></a-plane>
+          <a-text value="Corner House ice cream"
+                  position="0 0.35 0"
+                  width="1"
+                  align="center"
+                  visible="false"
+                  color="#FFFFFF"></a-text>
+        </a-entity>
+
+        <a-entity position="0.5 0.5 0" tap-to-toggle>
+          <a-plane width="0.45" height="0.45" opacity="0"></a-plane>
+          <a-text value="Basavangudi Bull temple mornings"
+                  position="0 0.35 0"
+                  width="1.1"
+                  align="center"
+                  visible="false"
+                  color="#FFFFFF"></a-text>
+        </a-entity>
+
+        <!-- MIDDLE ROW -->
+        <a-entity position="-0.5 0 0" tap-to-toggle>
+          <a-plane width="0.45" height="0.45" opacity="0"></a-plane>
+          <a-text value="Benne Dosai, anyone?"
+                  position="0 0.35 0"
+                  width="1"
+                  align="center"
+                  visible="false"
+                  color="#FFFFFF"></a-text>
+        </a-entity>
+
+        <a-entity position="0.5 0 0" tap-to-toggle>
+          <a-plane width="0.45" height="0.45" opacity="0"></a-plane>
+          <a-text value="Jacaranda trees and the lush pink"
+                  position="0 0.35 0"
+                  width="1"
+                  align="center"
+                  visible="false"
+                  color="#FFFFFF"></a-text>
+        </a-entity>
+
+        <!-- BOTTOM ROW -->
+        <a-entity position="-0.5 -0.5 0" tap-to-toggle>
+          <a-plane width="0.45" height="0.45" opacity="0"></a-plane>
+          <a-text value="Blossom, where time slows down"
+                  position="0 0.35 0"
+                  width="0.9"
+                  align="center"
+                  visible="false"
+                  color="#FFFFFF"></a-text>
+        </a-entity>
+
+        <a-entity position="0 -0.5 0" tap-to-toggle>
+          <a-plane width="0.45" height="0.45" opacity="0"></a-plane>
+          <a-text value="Agara lake sunsets"
+                  position="0 0.35 0"
+                  width="1.2"
+                  align="center"
+                  visible="false"
+                  color="#FFFFFF"></a-text>
+        </a-entity>
+
+        <a-entity position="0.5 -0.5 0" tap-to-toggle>
+          <a-plane width="0.45" height="0.45" opacity="0"></a-plane>
+          <a-text value="A stroll by the Lal Bagh"
+                  position="0 0.35 0"
+                  width="1"
+                  align="center"
+                  visible="false"
+                  color="#FFFFFF"></a-text>
+        </a-entity>
+
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
